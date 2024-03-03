@@ -1,0 +1,33 @@
+6.3s 1 /kaggle/input/spaceship-titanic/sample_submission.csv
+6.3s 2 /kaggle/input/spaceship-titanic/train.csv
+6.3s 3 /kaggle/input/spaceship-titanic/test.csv
+6.5s 4 Erroneous values found in CryoSleep column. Erroneous rows:
+6.5s 5 Erroneous rows removed.
+6.5s 6 Erroneous values in CryoSleep column: 0
+6.6s 7 Index(['HomePlanet', 'CryoSleep', 'Destination', 'Age', 'VIP', 'RoomService',
+6.6s 8 'FoodCourt', 'ShoppingMall', 'Spa', 'VRDeck', 'Transported',
+6.6s 9 'CabinLevel', 'CabinSection', 'Cabinn'],
+6.6s 10 dtype='object')
+8.1s 11 /opt/conda/lib/python3.10/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+8.1s 12 grouped_vals = vals.groupby(grouper)
+9.2s 13 /opt/conda/lib/python3.10/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
+9.2s 14 with pd.option_context('mode.use_inf_as_na', True):
+10.6s 15 0.7759505481688826
+10.6s 16 Your submission was successfully saved!
+12.9s 17 /opt/conda/lib/python3.10/site-packages/traitlets/traitlets.py:2930: FutureWarning: --Exporter.preprocessors=["remove_papermill_header.RemovePapermillHeader"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.
+12.9s 18 warn(
+12.9s 19 [NbConvertApp] WARNING | Config option `kernel_spec_manager_class` not recognized by `NbConvertApp`.
+12.9s 20 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+13.3s 21 [NbConvertApp] Writing 308582 bytes to __notebook__.ipynb
+14.7s 22 /opt/conda/lib/python3.10/site-packages/traitlets/traitlets.py:2930: FutureWarning: --Exporter.preprocessors=["nbconvert.preprocessors.ExtractOutputPreprocessor"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.
+14.7s 23 warn(
+14.7s 24 [NbConvertApp] WARNING | Config option `kernel_spec_manager_class` not recognized by `NbConvertApp`.
+14.7s 25 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+15.5s 26 [NbConvertApp] Support files will be in __results___files/
+15.5s 27 [NbConvertApp] Making directory __results___files
+15.5s 28 [NbConvertApp] Making directory __results___files
+15.5s 29 [NbConvertApp] Making directory __results___files
+15.5s 30 [NbConvertApp] Making directory __results___files
+15.5s 31 [NbConvertApp] Making directory __results___files
+15.5s 32 [NbConvertApp] Making directory __results___files
+15.5s 33 [NbConvertApp] Writing 317073 bytes to __results__.html
