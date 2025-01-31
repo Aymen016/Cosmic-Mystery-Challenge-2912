@@ -74,7 +74,9 @@ plt.ylabel('Count')
 plt.xticks(rotation=45)
 plt.show()
 ```
-![image](https://github.com/user-attachments/assets/182c6672-837e-4ff5-bdf3-8240ce844b47)
+
+![image](https://github.com/user-attachments/assets/660d1492-39d1-47dd-8bd1-a326236aa335)
+
 
 ```python
 plt.figure(figsize=(12, 8))
@@ -85,4 +87,5 @@ plt.ylabel('Count')
 plt.xticks(rotation=0)
 plt.show()
 ```
+
 ![image](https://github.com/user-attachments/assets/af11beb3-a8f8-4c08-a529-e0513da9a05c)
