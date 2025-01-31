@@ -1,44 +1,88 @@
-<h1>Cosmic Mystery Challenge</h1>
-Welcome to the Cosmic Mystery Challenge! In this data science adventure, you'll be transported to the year 2912 where your skills are urgently needed to solve a cosmic enigma. Are you ready to embark on this journey to rescue lost passengers from the Spaceship Titanic's collision with a spacetime anomaly?
+# 🚀 **Spaceship Titanic: Predicting Passenger Transported Status**
 
-<h1> Recommended Competition </h1>
-We highly recommend participating in the Titanic - Machine Learning from Disaster competition to acquaint yourself with the basics of machine learning and Kaggle competitions.
+## 📚 **Project Overview**
+This project is based on the **Spaceship Titanic** dataset, which contains passenger information from a spaceship journey. The goal is to predict whether a passenger was **transported** to a different dimension, based on various features such as home planet, age, cryogenic sleep status, and amenities usage.
 
-<h1> Challenge Overview </h1>
-The Spaceship Titanic, an interstellar passenger liner, recently embarked on its maiden voyage carrying nearly 13,000 passengers to three newly habitable exoplanets. However, tragedy struck as the vessel collided with a spacetime anomaly near Alpha Centauri, transporting almost half of its passengers to an alternate dimension.
+We preprocess the dataset, handle missing values, explore correlations, and visualize the distribution of features to build and train a model for **classification**. 
 
-Your mission is to predict which passengers were transported by the anomaly using records recovered from the spaceship's damaged computer system. By doing so, you'll aid rescue crews in retrieving the lost passengers and altering history.
-the major steps taken in the data preprocessing and modeling:
+## 🧑‍💻 **Installation and Setup**
 
-<h2> 1.Handling Missing Values: </h2>
+### **Prerequisites**
+Ensure you have **Python** and the required libraries installed. You can install the necessary dependencies by running:
 
-The missing values in the 'Age' column are filled with the mean age of passengers to ensure we don't lose data.
-Similarly, missing values in the 'HomePlanet' column are filled with the mode (most frequent value) of the column.
-For numerical features like 'VIP', 'RoomService', etc., missing values are filled with the mean of each respective feature.
-For the 'Destination' column, missing values are filled with the mode of the column.
+```bash
+pip install numpy pandas seaborn matplotlib
+```
 
-<h2> 2.Data Type Conversion: </h2>
+### 📚 **Dataset**
+This project uses the **Spaceship Titanic** dataset, available on Kaggle. It contains two main files:
+- **train.csv**: The training dataset containing labeled data.
+- **test.csv**: The testing dataset for prediction (no labels).
 
-The 'HomePlanet' column is converted to a categorical data type.
-The 'CryoSleep' column is converted to boolean type for easier handling.
+### **Loading the Data**
+The data is loaded using **Pandas** as follows:
 
-<h2> 3.Handling Erroneous Data: </h2>
+```python
+train_data = pd.read_csv("/kaggle/input/spaceship-titanic/train.csv")
+test_data = pd.read_csv("/kaggle/input/spaceship-titanic/test.csv")
+```
 
-Rows where passengers are in cryogenic sleep are identified.
-Erroneous rows with non-zero values in amenity-related columns (like 'RoomService', 'FoodCourt', etc.) are identified and removed.
+## 🧹 **Data Preprocessing**
+Data preprocessing is a crucial step before feeding the data into a machine learning model. Below are the steps involved:
 
-<h2> 4.Extracting Information from 'Cabin' Column: </h2>
+### **Handling Missing Values**:
+- For numerical features such as **Age**, missing values are filled with the mean.
+- For categorical features like **HomePlanet**, missing values are filled with the mode (most frequent value).
+- **Amenities** columns (RoomService, FoodCourt, Spa, VRDeck) with missing values are filled with the mean of each respective feature.
 
-The 'Cabin' column is filled with 'Unknown' for missing values.
-Relevant information like 'CabinLevel', 'CabinSection', and 'Cabinn' is extracted from the 'Cabin' column and stored in separate columns.
-Missing values in these new columns are filled with the mode of each respective column.
+### **Categorical Encoding**:
+- **HomePlanet** and **CryoSleep** are converted into **category** types, and **CryoSleep** is also converted to boolean values.
 
-<h2> 5.Exploratory Data Analysis (EDA): </h2>
+### **Feature Engineering**:
+- We create new features like **CabinLevel**, **CabinSection**, and **Cabinn** by splitting the **Cabin** feature.
 
-Visualizations are created to explore the distribution of features like 'Age' and the distribution of transported vs. non-transported passengers.
+### **Error Handling**:
+- We identify rows where passengers in cryogenic sleep have non-zero values in amenities-related columns and handle these erroneous rows by removing them.
 
-<h2> 6.Model Training and Prediction: </h2> 
+## 📊 **Exploratory Data Analysis (EDA)**
+Visualization helps us understand the underlying patterns in the data. Below are some key visualizations:
 
-A RandomForestClassifier model is trained using features like 'Age', 'CryoSleep', 'ShoppingMall', and 'FoodCourt'.
-The trained model is used to make predictions on the test dataset.
-The predictions are saved to a CSV file for submission.
+### **Distribution of Passengers by HomePlanet**:
+- This bar chart shows how passengers are distributed across different home planets.
+
+### **Distribution of Passengers by Destination**:
+- Visualizes the number of passengers going to each destination.
+
+### **Age Distribution by Transported Status**:
+- A boxplot showing the distribution of **Age** for passengers who were transported vs. those who were not.
+
+### **Correlation Heatmap**:
+- Displays the correlation between numerical features in the dataset to identify potential relationships.
+
+### **Transportation Status Distribution**:
+- A countplot showing the number of passengers who were and weren't transported.
+
+## 📈 **Visualizing the Data**
+Here are some visualizations used for understanding the dataset:
+
+```python
+plt.figure(figsize=(12, 8))
+sns.countplot(x='HomePlanet', data=train_data)
+plt.title('Distribution of Passengers by HomePlanet')
+plt.xlabel('HomePlanet')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.show()
+```
+![image](https://github.com/user-attachments/assets/182c6672-837e-4ff5-bdf3-8240ce844b47)
+
+```python
+plt.figure(figsize=(12, 8))
+sns.countplot(x='Destination', data=train_data)
+plt.title('Distribution of Passengers by Destination')
+plt.xlabel('Destination')
+plt.ylabel('Count')
+plt.xticks(rotation=0)
+plt.show()
+```
+![image](https://github.com/user-attachments/assets/af11beb3-a8f8-4c08-a529-e0513da9a05c)
