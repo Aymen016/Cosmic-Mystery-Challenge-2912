@@ -118,5 +118,5 @@ We use **accuracy** and other classification metrics to evaluate the model. We e
 Through this project, we successfully implemented data preprocessing and visualization techniques to clean and analyze the **Spaceship Titanic** dataset. The next steps involve building predictive models and comparing their performance to identify the best algorithm for the prediction of **Transported** status. We also plan to continue refining the model by testing more complex algorithms and adding feature engineering techniques.
 
 ## 📥 **License**
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/Aymen016/Cosmic-Mystery-Challenge-2912/blob/master/LICENSE) file for details.
 
