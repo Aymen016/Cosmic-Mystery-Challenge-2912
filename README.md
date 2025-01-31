@@ -1,5 +1,8 @@
 # 🚀 **Spaceship Titanic: Predicting Passenger Transported Status**
 
+![Untitled design (1)](https://github.com/user-attachments/assets/5a12dbd4-5e1b-4df2-9011-17d1dc11c37b)
+
+
 ## 📚 **Project Overview**
 This project is based on the **Spaceship Titanic** dataset, which contains passenger information from a spaceship journey. The goal is to predict whether a passenger was **transported** to a different dimension, based on various features such as home planet, age, cryogenic sleep status, and amenities usage.
 
