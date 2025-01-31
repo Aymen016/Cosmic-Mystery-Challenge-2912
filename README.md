@@ -50,42 +50,73 @@ Visualization helps us understand the underlying patterns in the data. Below are
 ### **Distribution of Passengers by HomePlanet**:
 - This bar chart shows how passengers are distributed across different home planets.
 
+- ![image](https://github.com/user-attachments/assets/660d1492-39d1-47dd-8bd1-a326236aa335)
+
+
 ### **Distribution of Passengers by Destination**:
 - Visualizes the number of passengers going to each destination.
+
+- ![image](https://github.com/user-attachments/assets/af11beb3-a8f8-4c08-a529-e0513da9a05c)
+
 
 ### **Age Distribution by Transported Status**:
 - A boxplot showing the distribution of **Age** for passengers who were transported vs. those who were not.
 
+- ![image](https://github.com/user-attachments/assets/fc051f93-75d3-4ef2-87f0-1bea95dcd376)
+
+
 ### **Correlation Heatmap**:
 - Displays the correlation between numerical features in the dataset to identify potential relationships.
+
+- ![Screenshot 2025-01-31 170926](https://github.com/user-attachments/assets/6dff3f47-c0ec-492f-9299-a60aae937103)
+
 
 ### **Transportation Status Distribution**:
 - A countplot showing the number of passengers who were and weren't transported.
 
-## 📈 **Visualizing the Data**
-Here are some visualizations used for understanding the dataset:
+- ![image](https://github.com/user-attachments/assets/1e3f7359-0c63-4e7f-8617-2f174d9cd034)
+
+
+# 🔍 **Feature Engineering & Transformation**
+- **Age Transformation**: Missing values in **Age** are filled with the mean age.
+- **Cabin Transformation**: Splitting the **Cabin** column into **CabinLevel**, **CabinSection**, and **Cabinn** for further analysis.
+- **CryoSleep Transformation**: Convert the **CryoSleep** column to boolean values and handle erroneous data where passengers in cryo sleep have non-zero values in amenities columns.
+
+## ⚙️ **Modeling**
+The ultimate goal is to predict the **Transported** status using various features. Below is an example of how you might implement a machine learning model:
 
 ```python
-plt.figure(figsize=(12, 8))
-sns.countplot(x='HomePlanet', data=train_data)
-plt.title('Distribution of Passengers by HomePlanet')
-plt.xlabel('HomePlanet')
-plt.ylabel('Count')
-plt.xticks(rotation=45)
-plt.show()
+# Example: Model training with RandomForestClassifier or any other classifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+
+# Prepare data for model
+X = train_data.drop(columns=['Transported'])
+y = train_data['Transported']
+
+# Train-test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Model training
+model = RandomForestClassifier()
+model.fit(X_train, y_train)
+
+# Evaluate the model
+score = model.score(X_test, y_test)
+print(f"Model Accuracy: {score}")
 ```
 
-![image](https://github.com/user-attachments/assets/660d1492-39d1-47dd-8bd1-a326236aa335)
+## 📈 **Model Evaluation**
+We use **accuracy** and other classification metrics to evaluate the model. We ensure the model generalizes well by testing on the **test dataset**.
 
+## 🚧 **Future Improvements**
+- **Hyperparameter Tuning**: Experiment with different algorithms and hyperparameter optimization techniques such as **GridSearchCV** or **RandomizedSearchCV**.
+- **Feature Selection**: Use techniques like **Recursive Feature Elimination (RFE)** or **PCA** to reduce the feature space and improve model performance.
+- **Cross-validation**: Implement **k-fold cross-validation** for better performance evaluation.
 
-```python
-plt.figure(figsize=(12, 8))
-sns.countplot(x='Destination', data=train_data)
-plt.title('Distribution of Passengers by Destination')
-plt.xlabel('Destination')
-plt.ylabel('Count')
-plt.xticks(rotation=0)
-plt.show()
-```
+## 💬 **Conclusion**
+Through this project, we successfully implemented data preprocessing and visualization techniques to clean and analyze the **Spaceship Titanic** dataset. The next steps involve building predictive models and comparing their performance to identify the best algorithm for the prediction of **Transported** status. We also plan to continue refining the model by testing more complex algorithms and adding feature engineering techniques.
 
-![image](https://github.com/user-attachments/assets/af11beb3-a8f8-4c08-a529-e0513da9a05c)
+## 📥 **License**
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
